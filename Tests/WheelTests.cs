@@ -1,5 +1,7 @@
 using NUnit.Framework;
 using ProcessorLibrary;
+using ProcessorLibrary.Models;
+using ProcessorLibrary.Services;
 using System;
 using System.Linq;
 

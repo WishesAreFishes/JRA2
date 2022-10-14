@@ -1,4 +1,4 @@
-﻿namespace ProcessorLibrary;
+﻿namespace ProcessorLibrary.Models;
 
 public record DataItem
 {

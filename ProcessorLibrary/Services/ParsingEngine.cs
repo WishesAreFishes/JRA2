@@ -1,8 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using ProcessorLibrary.Interfaces;
+using ProcessorLibrary.Models;
+using System.Collections.Generic;
 using System.Text.Json.Nodes;
 using System.Text.RegularExpressions;
 
-namespace ProcessorLibrary;
+namespace ProcessorLibrary.Services;
 public class ParsingEngine : IParsingEngine
 {
     private IStatistics _statistics;

@@ -1,5 +1,5 @@
 namespace TwitterStatistics;
-using ProcessorLibrary;
+using ProcessorLibrary.Interfaces;
 using System.Threading;
 
 /// <summary>

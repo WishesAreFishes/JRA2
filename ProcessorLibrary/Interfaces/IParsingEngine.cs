@@ -1,4 +1,4 @@
-﻿namespace ProcessorLibrary;
+﻿namespace ProcessorLibrary.Interfaces;
 
 public interface IParsingEngine
 {

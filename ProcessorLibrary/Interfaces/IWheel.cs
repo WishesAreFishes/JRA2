@@ -1,4 +1,6 @@
-﻿namespace ProcessorLibrary;
+﻿using ProcessorLibrary.Models;
+
+namespace ProcessorLibrary.Interfaces;
 
 public interface IWheel
 {

@@ -1,7 +1,8 @@
-﻿using System;
+﻿using ProcessorLibrary.Models;
+using System;
 using System.Collections.Generic;
 
-namespace ProcessorLibrary;
+namespace ProcessorLibrary.Interfaces;
 public interface IStatistics
 {
     TimeSpan Elapsed { get; }

@@ -1,6 +1,8 @@
-﻿using System;
+﻿using ProcessorLibrary.Interfaces;
+using ProcessorLibrary.Models;
+using System;
 
-namespace ProcessorLibrary;
+namespace ProcessorLibrary.Services;
 
 /// <summary>
 /// The wheel is a circular non-linked Queue of data items operating as a read-write buffer
@@ -57,7 +59,7 @@ public class Wheel : IWheel
             return null;
 
         }
-        _statistics.AddWheelStatus((int) (WritePtr - ReadPtr));
+        _statistics.AddWheelStatus((int)(WritePtr - ReadPtr));
         var ptr = BucketPointer(++ReadPtr);
         var itemToReturn = DataItems[ptr];
         DataItems[ptr] = null;

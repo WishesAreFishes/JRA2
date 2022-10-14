@@ -1,6 +1,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using ProcessorLibrary;
+using ProcessorLibrary.Interfaces;
+using ProcessorLibrary.Services;
 
 namespace TwitterStatistics
 {

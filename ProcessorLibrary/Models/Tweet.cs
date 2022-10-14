@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace ProcessorLibrary;
+namespace ProcessorLibrary.Models;
 
 public class Tweet
 {

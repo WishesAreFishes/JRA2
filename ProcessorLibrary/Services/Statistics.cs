@@ -1,8 +1,10 @@
-﻿using System;
+﻿using ProcessorLibrary.Interfaces;
+using ProcessorLibrary.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace ProcessorLibrary;
+namespace ProcessorLibrary.Services;
 public class Statistics : IStatistics
 {
     public int TweetCount { get; set; }
