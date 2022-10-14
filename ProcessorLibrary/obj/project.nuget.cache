@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "T+FksUoKizvP5HL/uH3KqNeTOg31qWSoAFhje47mLACUz/omK6vwx9eFK1OecTbSh61MMi5j/uKO975Swq3GKQ==",
+  "dgSpecHash": "oLLp1B0az9euc9TIQgLXBYpxJhD8Wmb9q0QZKuJ75WbTGgwusKnJ04lTVZDXNizKdfpLmVrH1GKmtrnTgR6zsg==",
   "success": true,
-  "projectFilePath": "C:\\Source\\JHA\\JHA\\ProcessorLibrary\\ProcessorLibrary.csproj",
+  "projectFilePath": "C:\\Source\\JHA\\JRA2\\ProcessorLibrary\\ProcessorLibrary.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

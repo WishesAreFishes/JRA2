@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "KiVgGhTUlMRbPvWYChX8gu2V695RyrLn6BwQ4UJPKFSCCIxLCoa7u0GJM3N3lkqZKNpGvZDOekgnyR7NYC0O0A==",
+  "dgSpecHash": "10/s/O2zkGyizetbJeY2EyQjLrrx7ZYQmF5O5ox1x98w9P81MvOm3DEXc9hh1F3VPnBWI2ZlCYDfjm8LaAxzXg==",
   "success": true,
-  "projectFilePath": "C:\\Source\\JHA\\JHA\\Tests\\ProcessorTests.csproj",
+  "projectFilePath": "C:\\Source\\JHA\\JRA2\\Tests\\ProcessorTests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\tomhu\\.nuget\\packages\\coverlet.collector\\3.1.2\\coverlet.collector.3.1.2.nupkg.sha512",
     "C:\\Users\\tomhu\\.nuget\\packages\\microsoft.codecoverage\\17.1.0\\microsoft.codecoverage.17.1.0.nupkg.sha512",

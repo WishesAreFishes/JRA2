@@ -21,13 +21,13 @@ public class Wheel : IWheel
     private ulong WritePtr { get; set; }
     private ulong ReadPtr { get; set; }
     private DataItem[] DataItems { get; set; }
-    private Statistics _statistics { get; set; }
+    private IStatistics _statistics { get; set; }
 
 
     public object Locker { get; set; }
-    public Wheel(Statistics statistics)
+    public Wheel(IStatistics statistics)
     {
-        WritePtr = ReadPtr = 0;
+        Reset();
         DataItems = new DataItem[BUFFER_SIZE];
         Locker = new object();
         _statistics = statistics;
@@ -107,4 +107,8 @@ public class Wheel : IWheel
         }
     }
 
+    public void Reset()
+    {
+        WritePtr = ReadPtr = 0;
+    }
 }

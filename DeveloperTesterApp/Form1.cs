@@ -10,15 +10,19 @@ using System.Threading;
 /// </summary>
 public partial class Form1 : Form
 {
-    private Statistics statistics { get; set; }
-    private Wheel wheel { get; set; }
-    ApiAccess apiAccess { get; set; }
-    ParsingEngine parsingEngine { get; set; }
+    IStatistics _statistics { get; set; }
+    IWheel _wheel { get; set; }
+    IApiAccess _apiAccess { get; set; }
+    IParsingEngine _parsingEngine { get; set; }
 
     Thread[] threads = new Thread[2];
-    public Form1()
+    public Form1(IWheel wheel, IStatistics statistics, IApiAccess apiAccess, IParsingEngine parsingEngine)
     {
         InitializeComponent();
+        _wheel = wheel;
+        _statistics = statistics;
+        _apiAccess = apiAccess;
+        _parsingEngine = parsingEngine;
     }
 
     private void btnStart_Click(object sender, EventArgs e)
@@ -26,12 +30,11 @@ public partial class Form1 : Form
         btnStopCapturing.Enabled = true;
         btnStart.Enabled = false;
 
-        statistics = new();
-        wheel = new(statistics);
-        apiAccess = new ApiAccess(statistics, wheel);
-        parsingEngine = new ParsingEngine(statistics, wheel);
-        
         timer1.Enabled = true;
+
+        _statistics.Reset();
+        _wheel.Reset();
+        DisplayStatistics();
 
         var thread = new Thread(new ThreadStart(LaunchGetTweets));
         thread.Start();
@@ -43,23 +46,29 @@ public partial class Form1 : Form
     }
     private void LaunchDeQueue()
     {
-        parsingEngine.Dequeue();
+        _parsingEngine.Dequeue();
     }
 
     private void LaunchGetTweets()
     {
-        Task.Run(async () => await apiAccess.GetTweets());
+        Task.Run(async () => await _apiAccess.GetTweets());
     }
 
     private void timer1_Tick(object sender, EventArgs e)
     {
-        txtElapsedTime.Text = statistics.Elapsed.ToString(@"d\.hh\:mm\:ss");
-        txtTotalTweets.Text  = statistics.TweetCount.ToString();
-        txtTweetsPerSecond.Text = statistics.TweetsPerSecond.ToString("00.0");
-        txtQueuePerformance.Text = statistics.QueuePerformance.ToString();
-        if (statistics.TopTenHashTags != null && statistics.TopTenHashTags().Any())
+        DisplayStatistics();
+    }
+
+    private void DisplayStatistics()
+    {
+        txtElapsedTime.Text = _statistics.Elapsed.ToString(@"d\.hh\:mm\:ss");
+        txtTotalTweets.Text = _statistics.TweetCount.ToString();
+        txtTweetsPerSecond.Text = _statistics.TweetsPerSecond.ToString("00.0");
+        txtQueuePerformance.Text = _statistics.QueuePerformance.ToString();
+        txtHashTags.Text = "";
+        if (_statistics.TopTenHashTags != null && _statistics.TopTenHashTags().Any())
         {
-            txtHashTags.Text = statistics
+            txtHashTags.Text = _statistics
                 .TopTenHashTags()
                 .Aggregate((x, y) => x + "\r\n" + y);
         }
@@ -75,8 +84,8 @@ public partial class Form1 : Form
     private void StopDaemons()
     {
         timer1.Enabled = false;
-        parsingEngine?.Stop();
-        apiAccess?.Stop();
+        _parsingEngine?.Stop();
+        _apiAccess?.Stop();
     }
     private void Form1_FormClosing(object sender, FormClosingEventArgs e)
     {

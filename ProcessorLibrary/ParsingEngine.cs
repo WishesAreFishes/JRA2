@@ -3,13 +3,13 @@ using System.Text.Json.Nodes;
 using System.Text.RegularExpressions;
 
 namespace ProcessorLibrary;
-public class ParsingEngine
+public class ParsingEngine : IParsingEngine
 {
-    private Statistics _statistics;
-    private Wheel _wheel;
+    private IStatistics _statistics;
+    private IWheel _wheel;
     bool _running = false;
 
-    public ParsingEngine(Statistics statistics, Wheel wheel)
+    public ParsingEngine(IStatistics statistics, IWheel wheel)
     {
         _statistics = statistics;
         _wheel = wheel;

@@ -3,4 +3,6 @@
 public interface IWheel
 {
     DataItem PutOrTake(DataItem dataItem = null);
+
+    void Reset();
 }

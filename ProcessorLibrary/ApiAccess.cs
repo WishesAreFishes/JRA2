@@ -7,13 +7,13 @@ using System.Threading;
 using System.Threading.Tasks;
 
 namespace ProcessorLibrary;
-public class ApiAccess
+public class ApiAccess : IApiAccess
 {
 
 
-    private Wheel _wheel { get; set; }
+    private IWheel _wheel { get; set; }
     private bool _running = false;
-    public ApiAccess(Statistics statistics, Wheel wheel)
+    public ApiAccess(IWheel wheel)
     {
         _wheel = wheel;
     }
@@ -37,10 +37,10 @@ public class ApiAccess
             {
                 await GetTweetStream();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-                Console.WriteLine("Waiting: 1 second to retry" );
+                Console.WriteLine("Waiting: 1 second to retry");
                 Thread.Sleep(1000);
             }
         }

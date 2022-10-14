@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 
 namespace ProcessorLibrary;
-public class Statistics
+public class Statistics : IStatistics
 {
     public int TweetCount { get; set; }
     public DateTime StartDate { get; set; } = DateTime.Now;
     public DateTime EndDate => DateTime.Now;
-    public TimeSpan Elapsed  => EndDate - StartDate;
+    public TimeSpan Elapsed => EndDate - StartDate;
 
     public int WaitingCount { get; set; }
     public object Locker { get; set; } = new object();
@@ -18,6 +18,15 @@ public class Statistics
     public void AddWheelStatus(int waitingCount)
     {
         WaitingCount = waitingCount;
+    }
+    public void Reset()
+    {
+        StartDate = DateTime.Now;
+        TweetCount = 0;
+        HashTags.Clear();
+        WaitingCount = 0;
+
+
     }
 
     /// <summary>
@@ -63,9 +72,9 @@ public class Statistics
     /// <returns></returns>
     public List<string> TopTenHashTags()
     {
-        var sorted = from entry 
-                     in HashTags 
-                     orderby entry.Value descending 
+        var sorted = from entry
+                     in HashTags
+                     orderby entry.Value descending
                      select entry.Key;
 
         return sorted.Take(10).ToList();

@@ -22,3 +22,15 @@ C:\Source\JHA\JHA\ProcessorLibrary\obj\Debug\net6.0\ProcessorLibrary.dll
 C:\Source\JHA\JHA\ProcessorLibrary\obj\Debug\net6.0\refint\ProcessorLibrary.dll
 C:\Source\JHA\JHA\ProcessorLibrary\obj\Debug\net6.0\ProcessorLibrary.pdb
 C:\Source\JHA\JHA\ProcessorLibrary\obj\Debug\net6.0\ref\ProcessorLibrary.dll
+C:\Source\JHA\JRA2\ProcessorLibrary\bin\Debug\net6.0\ProcessorLibrary.deps.json
+C:\Source\JHA\JRA2\ProcessorLibrary\bin\Debug\net6.0\ProcessorLibrary.dll
+C:\Source\JHA\JRA2\ProcessorLibrary\bin\Debug\net6.0\ProcessorLibrary.pdb
+C:\Source\JHA\JRA2\ProcessorLibrary\obj\Debug\net6.0\ProcessorLibrary.csproj.AssemblyReference.cache
+C:\Source\JHA\JRA2\ProcessorLibrary\obj\Debug\net6.0\ProcessorLibrary.GeneratedMSBuildEditorConfig.editorconfig
+C:\Source\JHA\JRA2\ProcessorLibrary\obj\Debug\net6.0\ProcessorLibrary.AssemblyInfoInputs.cache
+C:\Source\JHA\JRA2\ProcessorLibrary\obj\Debug\net6.0\ProcessorLibrary.AssemblyInfo.cs
+C:\Source\JHA\JRA2\ProcessorLibrary\obj\Debug\net6.0\ProcessorLibrary.csproj.CoreCompileInputs.cache
+C:\Source\JHA\JRA2\ProcessorLibrary\obj\Debug\net6.0\ProcessorLibrary.dll
+C:\Source\JHA\JRA2\ProcessorLibrary\obj\Debug\net6.0\refint\ProcessorLibrary.dll
+C:\Source\JHA\JRA2\ProcessorLibrary\obj\Debug\net6.0\ProcessorLibrary.pdb
+C:\Source\JHA\JRA2\ProcessorLibrary\obj\Debug\net6.0\ref\ProcessorLibrary.dll

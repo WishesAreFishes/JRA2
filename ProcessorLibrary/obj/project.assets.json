@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Source\\JHA\\JHA\\ProcessorLibrary\\ProcessorLibrary.csproj",
+      "projectUniqueName": "C:\\Source\\JHA\\JRA2\\ProcessorLibrary\\ProcessorLibrary.csproj",
       "projectName": "ProcessorLibrary",
-      "projectPath": "C:\\Source\\JHA\\JHA\\ProcessorLibrary\\ProcessorLibrary.csproj",
+      "projectPath": "C:\\Source\\JHA\\JRA2\\ProcessorLibrary\\ProcessorLibrary.csproj",
       "packagesPath": "C:\\Users\\tomhu\\.nuget\\packages\\",
-      "outputPath": "C:\\Source\\JHA\\JHA\\ProcessorLibrary\\obj\\",
+      "outputPath": "C:\\Source\\JHA\\JRA2\\ProcessorLibrary\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\tomhu\\AppData\\Roaming\\NuGet\\NuGet.Config",
