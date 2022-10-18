@@ -5,7 +5,7 @@ using System;
 namespace ProcessorLibrary.Services;
 
 /// <summary>
-/// The wheel is a circular non-linked Queue of data items operating as a read-write buffer
+/// The bufferingService is a circular non-linked Queue of data items operating as a read-write buffer
 /// It is implemented with UInt64 pointers which provides a numerical space equivalent to about a hundred million years of tweets
 /// But we modulo those pointers to provide support for 16384 buckets (2^14) which should be sufficient to allow a burst of tweets
 /// up to 16384 in any given second,
@@ -14,7 +14,7 @@ namespace ProcessorLibrary.Services;
 /// Twitter tweet feed of 5700 tweets per second.
 /// 
 /// </summary>
-public class Wheel : IWheel
+public class BufferingService : IBufferingService
 {
 
     const int BUFFER_SIZE = 16_384;
@@ -23,11 +23,11 @@ public class Wheel : IWheel
     private ulong WritePtr { get; set; }
     private ulong ReadPtr { get; set; }
     private DataItem[] DataItems { get; set; }
-    private IStatistics _statistics { get; set; }
+    private IStatisticsService _statistics { get; set; }
 
 
     public object Locker { get; set; }
-    public Wheel(IStatistics statistics)
+    public BufferingService(IStatisticsService statistics)
     {
         Reset();
         DataItems = new DataItem[BUFFER_SIZE];
@@ -59,7 +59,7 @@ public class Wheel : IWheel
             return null;
 
         }
-        _statistics.AddWheelStatus((int)(WritePtr - ReadPtr));
+        _statistics.AddBufferingServiceStatus((int)(WritePtr - ReadPtr));
         var ptr = BucketPointer(++ReadPtr);
         var itemToReturn = DataItems[ptr];
         DataItems[ptr] = null;
@@ -79,7 +79,7 @@ public class Wheel : IWheel
         {
             throw new OverflowException("Exceeded buffer capacity");
         }
-        _statistics.AddWheelStatus((int)(WritePtr - ReadPtr));
+        _statistics.AddBufferingServiceStatus((int)(WritePtr - ReadPtr));
 
         DataItems[ptr] = dataItem;
     }

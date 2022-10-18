@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 
 namespace ProcessorLibrary.Interfaces;
-public interface IStatistics
+public interface IStatisticsService
 {
     TimeSpan Elapsed { get; }
     DateTime EndDate { get; }
@@ -15,7 +15,7 @@ public interface IStatistics
     int WaitingCount { get; set; }
 
     void AddTweet(Tweet tweet);
-    void AddWheelStatus(int waitingCount);
+    void AddBufferingServiceStatus(int waitingCount);
     List<string> TopTenHashTags();
     void Reset();
 }

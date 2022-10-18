@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 namespace ProcessorLibrary.Services;
-public class Statistics : IStatistics
+public class StatisticsService : IStatisticsService
 {
     public int TweetCount { get; set; }
     public DateTime StartDate { get; set; } = DateTime.Now;
@@ -17,7 +17,7 @@ public class Statistics : IStatistics
 
     private Dictionary<string, int> HashTags = new Dictionary<string, int>();
 
-    public void AddWheelStatus(int waitingCount)
+    public void AddBufferingServiceStatus(int waitingCount)
     {
         WaitingCount = waitingCount;
     }

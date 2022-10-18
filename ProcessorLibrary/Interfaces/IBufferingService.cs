@@ -2,7 +2,7 @@
 
 namespace ProcessorLibrary.Interfaces;
 
-public interface IWheel
+public interface IBufferingService
 {
     DataItem PutOrTake(DataItem dataItem = null);
 

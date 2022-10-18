@@ -1,22 +1,19 @@
 ﻿using ProcessorLibrary.Interfaces;
 using System;
 using System.IO;
-using System.Net;
 using System.Net.Http;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace ProcessorLibrary.Services;
-public class ApiAccess : IApiAccess
+public class ApiAccessService : IApiAccessService
 {
 
-
-    private IWheel _wheel { get; set; }
+    private IBufferingService _bufferingService { get; set; }
     private bool _running = false;
-    public ApiAccess(IWheel wheel)
+    public ApiAccessService(IBufferingService bufferingService)
     {
-        _wheel = wheel;
+        _bufferingService = bufferingService;
     }
     private int backoffDelayInMilliseconds { get; set; }
 
@@ -73,7 +70,7 @@ public class ApiAccess : IApiAccess
                     string line = null;
                     while ((line = await reader.ReadLineAsync()) != null && _running)
                     {
-                        _wheel.PutOrTake(new(line));
+                        _bufferingService.PutOrTake(new(line));
                         Console.WriteLine($"Received tweet: {line}");
                     }
                 }

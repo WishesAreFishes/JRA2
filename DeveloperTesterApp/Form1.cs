@@ -10,16 +10,16 @@ using System.Threading;
 /// </summary>
 public partial class Form1 : Form
 {
-    IStatistics _statistics { get; set; }
-    IWheel _wheel { get; set; }
-    IApiAccess _apiAccess { get; set; }
-    IParsingEngine _parsingEngine { get; set; }
+    IStatisticsService _statistics { get; set; }
+    IBufferingService _bufferingService { get; set; }
+    IApiAccessService _apiAccess { get; set; }
+    IParsingService _parsingEngine { get; set; }
 
     Thread[] threads = new Thread[2];
-    public Form1(IWheel wheel, IStatistics statistics, IApiAccess apiAccess, IParsingEngine parsingEngine)
+    public Form1(IBufferingService bufferingService, IStatisticsService statistics, IApiAccessService apiAccess, IParsingService parsingEngine)
     {
         InitializeComponent();
-        _wheel = wheel;
+        _bufferingService = bufferingService;
         _statistics = statistics;
         _apiAccess = apiAccess;
         _parsingEngine = parsingEngine;
@@ -33,7 +33,7 @@ public partial class Form1 : Form
         timer1.Enabled = true;
 
         _statistics.Reset();
-        _wheel.Reset();
+        _bufferingService.Reset();
         DisplayStatistics();
 
         var thread = new Thread(new ThreadStart(LaunchGetTweets));

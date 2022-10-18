@@ -12,28 +12,28 @@ public class Tests
     const int BUFFER_SIZE = 16_384;
     const int BUFFER_SIZE_HEX = 0x3FFF;
 
-    private Wheel wheel { get; set; }
-    private Statistics statistics { get; set; }
+    private BufferingService bufferingService { get; set; }
+    private StatisticsService statistics { get; set; }
     [SetUp]
     public void Setup()
     {
         statistics = new();
-        wheel = new(statistics);
+        bufferingService = new(statistics);
     }
 
     [Test]
     public void CanWeThrowErrorOnOverflow()
     {
         var arr = new int[BUFFER_SIZE];
-        arr.ToList().ForEach(x => wheel.PutOrTake(new()));
+        arr.ToList().ForEach(x => bufferingService.PutOrTake(new()));
 
-        Assert.Throws<OverflowException>(() => wheel.PutOrTake(new()));
+        Assert.Throws<OverflowException>(() => bufferingService.PutOrTake(new()));
     }
     [Test]
     public void CanWeExtractOneDataItem()
     {
-        wheel.PutOrTake(new("Json"));
-        var result = wheel.PutOrTake();
+        bufferingService.PutOrTake(new("Json"));
+        var result = bufferingService.PutOrTake();
         Assert.AreEqual(new DataItem("Json"), result);
     }
 }

@@ -30,11 +30,11 @@ namespace TwitterStatistics
         {
             return Host.CreateDefaultBuilder()
                 .ConfigureServices((context, services) => {
-                    services.AddSingleton<IWheel, Wheel>();
+                    services.AddSingleton<IBufferingService, BufferingService>();
                     services.AddTransient<Form1>();
-                    services.AddSingleton<IStatistics, Statistics>();
-                    services.AddTransient<IApiAccess, ApiAccess>();
-                    services.AddTransient<IParsingEngine, ParsingEngine>();
+                    services.AddSingleton<IStatisticsService, StatisticsService>();
+                    services.AddTransient<IApiAccessService, ApiAccessService>();
+                    services.AddTransient<IParsingService, ParsingService>();
                 });
         }
     }

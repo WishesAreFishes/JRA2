@@ -5,16 +5,16 @@ using System.Text.Json.Nodes;
 using System.Text.RegularExpressions;
 
 namespace ProcessorLibrary.Services;
-public class ParsingEngine : IParsingEngine
+public class ParsingService : IParsingService
 {
-    private IStatistics _statistics;
-    private IWheel _wheel;
+    private IStatisticsService _statistics;
+    private IBufferingService _bufferingService;
     bool _running = false;
 
-    public ParsingEngine(IStatistics statistics, IWheel wheel)
+    public ParsingService(IStatisticsService statistics, IBufferingService bufferingService)
     {
         _statistics = statistics;
-        _wheel = wheel;
+        _bufferingService = bufferingService;
     }
 
     /// <summary>
@@ -25,7 +25,7 @@ public class ParsingEngine : IParsingEngine
         _running = true;
         while (_running)
         {
-            var dataItem = _wheel.PutOrTake();
+            var dataItem = _bufferingService.PutOrTake();
             if (dataItem == null)
             {
                 System.Threading.Thread.Sleep(10);

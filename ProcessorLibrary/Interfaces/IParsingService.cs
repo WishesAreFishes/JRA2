@@ -1,6 +1,6 @@
 ﻿namespace ProcessorLibrary.Interfaces;
 
-public interface IParsingEngine
+public interface IParsingService
 {
     void Dequeue();
     void Stop();
