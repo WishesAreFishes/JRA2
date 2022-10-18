@@ -5,6 +5,25 @@ using System.Text.Json.Nodes;
 using System.Text.RegularExpressions;
 
 namespace ProcessorLibrary.Services;
+/// <summary>
+/// Parsing Service extracts meaning from a tweet, storing its result in Statistics
+/// This Service is meant to run in its own thread, to decouple it from the Api Access Service,
+/// which also runs in its own thread.
+/// 
+/// It may appear unnecessary to run this service in its own thread,
+/// however, in antisipation of other activities that might be required later,
+/// this architecture is easily extensible.
+/// 
+/// For instance, there may be a need to reach out to the API via another
+/// API service class to receive more information about the source and sink
+/// of the tweet.
+/// 
+/// Also, it may be useful to limit the language of hashtags to English.
+/// 
+/// Any such processessing might need to also be done in separate threads,
+/// However, storing the tweet data in a database for offline processing by
+/// other services may prove more effective.
+/// </summary>
 public class ParsingService : IParsingService
 {
     private IStatisticsService _statistics;

@@ -6,6 +6,11 @@ using System.Threading;
 using System.Threading.Tasks;
 
 namespace ProcessorLibrary.Services;
+/// <summary>
+/// API Access Service streams tweets from Twitter continuously
+/// This service is intended to run in its own thread, to decouple it from the
+/// Parsing Service, which also runs in its own thread
+/// </summary>
 public class ApiAccessService : IApiAccessService
 {
 
