@@ -92,6 +92,7 @@ public class BufferingService : IBufferingService
     /// <returns></returns>
     public DataItem PutOrTake(DataItem dataItem = null)
     {
+        // Ensure thread safety for queue access
         lock (Locker)
         {
             // Null dataItem means this is a Take operation

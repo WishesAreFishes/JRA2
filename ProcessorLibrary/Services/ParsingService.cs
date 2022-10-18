@@ -47,7 +47,7 @@ public class ParsingService : IParsingService
     private List<string> Parse(DataItem dataItem)
     {
         var rtn = new List<string>();
-        if (dataItem.Json.Contains("#"))
+        if (dataItem.Json is not null && dataItem.Json.Contains('#'))
         {
             var node = JsonNode.Parse(dataItem.Json);
             var data = node!["data"];

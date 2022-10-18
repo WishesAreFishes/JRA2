@@ -1,5 +1,4 @@
 using NUnit.Framework;
-using ProcessorLibrary;
 using ProcessorLibrary.Models;
 using ProcessorLibrary.Services;
 using System;
@@ -7,7 +6,7 @@ using System.Linq;
 
 namespace TestProject1;
 
-public class Tests
+public class BufferingServiceTests
 {
     const int BUFFER_SIZE = 16_384;
     const int BUFFER_SIZE_HEX = 0x3FFF;
